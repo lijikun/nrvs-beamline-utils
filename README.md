@@ -30,10 +30,10 @@ Requires [PHOENIX](https://www.nrixs.com/products.html), which in turn requires 
 
 * (Optional) To transfer this whole directory structure, it is better to use 
 
-    rsync -avz --copy-unsafe-links source destination 
+     rsync -avz --copy-unsafe-links source destination 
     
 to perserve the directory and symlink structure. Alternatively, use
 
-    tar -czvhf myfile.tar.gz mydir
+     tar -czvhf myfile.tar.gz mydir
 
 to dereference links when making archives.
