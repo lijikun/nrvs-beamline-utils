@@ -4,7 +4,7 @@
 
 echo
 if [[ ! $1 ]]; then
-	echo "Input error. Usage: ./switch_input.bash SampleName"
+	echo "Input error. Usage: ./switch_sample.bash SampleName"
 	exit 1
 fi
 
