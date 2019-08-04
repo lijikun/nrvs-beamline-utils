@@ -10,7 +10,7 @@ Requires [PHOENIX](https://www.nrixs.com/products.html), which in turn requires 
 
 * Use the `switch_sample.bash` script to name a sample, setting up the proper folder and symlinks, e.g.:
 
-    ./switch_sample.bash Sample1
+    ```./switch_sample.bash Sample1```
 
 * Edit the end of the `in_padd` file, such that the corrected raw files are included.
 
@@ -30,10 +30,10 @@ Requires [PHOENIX](https://www.nrixs.com/products.html), which in turn requires 
 
 * (Optional) To transfer this whole directory structure, it is recommended to use
  
- ```rsync -avz --copy-unsafe-links source destination```
+     ```rsync -avz --copy-unsafe-links source destination```
      
 to perserve the directory and symlink structure. Also, one can use
 
-```tar -czvhf myfile.tar.gz mydir```
+     ```tar -czvhf myfile.tar.gz mydir```
 
 to dereference symlinks while making archives.
