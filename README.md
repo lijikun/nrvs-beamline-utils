@@ -28,10 +28,12 @@ Requires [PHOENIX](https://www.nrixs.com/products.html), which in turn requires 
 
   * `./switch_sample.bash Sample1` merely collects the files into the folder without setting up for another sample.
 
-* (Optional) To transfer this whole directory structure, it is better to use
+* (Optional) To transfer this whole directory structure, it is recommended to use
+ 
  ```rsync -avz --copy-unsafe-links source destination```
      
- to perserve the directory and symlink structure. Alternatively, use
+to perserve the directory and symlink structure. Also, one can use
 
 ```tar -czvhf myfile.tar.gz mydir```
- to dereference symlinks while making archives.
+
+to dereference symlinks while making archives.
