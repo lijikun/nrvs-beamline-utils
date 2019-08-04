@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Usage: ./switch_input.bash NewSampleName
+# Usage: ./switch_sample.bash NewSampleName
 
 echo
 if [[ ! $1 ]]; then
@@ -24,7 +24,7 @@ if [[ -e $1 && -e $1/in_padd_$1 && -e $1/in_phox_$1 ]]; then
 		cp -L in_phox in_phox.bak
 	fi
 else 
-	# Creates new folder. Copy existing input files into it and make edits.
+	# Creates new folder. Copies existing input files into it and makes edits.
 	if [[ -e in_padd && -e in_phox ]]; then
 		mkdir -p $1
 		cp -L in_padd $1/in_padd_$1
@@ -39,7 +39,7 @@ else
 	fi
 fi
 
-# Move files belonging to previous folders.
+# Moves files belonging to previous sample.
 if [[ $prevString1 && $prevString2 ]]; then
     for x in ${prevString1}?*; do
         if [[ -e $x ]]; then	
@@ -55,7 +55,7 @@ if [[ $prevString1 && $prevString2 ]]; then
     done
 fi
 
-# Create soft links.
+# Creates soft links.
 echo "Creating soft links:"
 rm -f in_padd in_phox
 ln -fs $1/in_padd_$1 in_padd
