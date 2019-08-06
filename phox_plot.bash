@@ -1,7 +1,9 @@
 #!/bin/bash
 #
-# Integrates and prints density of states (DOS), 
-# generateing a file named [Sample Name]_dos_int.dat and plots it using gnuplot.
+# Integrates and plots density of states (DOS). 
+#
+# Outputs a file named [Sample Name]_dos_int.dat and plots it using gnuplot.
+#
 # Defaults to cm^-1 as energy unit. Optionally, use --meV for meV energy unit, i.e.:
 ## ./phox_plot.bash		# Generates file and plot with cm^-1 as energy unit.
 ## ./phox_plot.bash --meV	# Generates file and plot with meV as energy unit.
