@@ -2,23 +2,25 @@
 
 Requires [PHOENIX](https://www.nrixs.com/products.html), which in turn requires [MDA utilities](https://epics.anl.gov/bcda/mdautils/) for data generated at ANL. Also requires bash, sed, awk and gnuplot. Optionally, [SciPhon](https://originslab.uchicago.edu/Software-and-Facilities) is also recommended.
 
-## General Usage
+## General Data Processing Step-by-Step
 
 * Download the `.tar.gz` archive for the newest release. Extract all files, including the Example folder and symlinks, to the same directory where the `scans/` subdirectory is located.
 
 * Collect your data. Raw scans should be stored in the `scans/` subdirectory, e.g. `scans/scan_0003.mda`.
 
-* Use the `switch_sample.bash` script to name a sample, setting up the proper folder and symlinks, e.g.:
+* Use the `switch_sample.bash` script to name a sample, setting up the proper folder and symlinks:
 
     ```./switch_sample.bash Sample1```
 
 * Edit the end of the `in_padd` file, such that the corrected raw files are included.
 
-* Run `padd` to generate the sum file.
+* Run `padd` to generate the sum file `[Sample Name]_sum.dat`.
 
-* (Optional) Run `./res_func.bash` to generate the resolution function.
+* (Optional) Run `./res_func.bash` to generate the resolution function, which will be named `[Sample Name]_res_sum.dat`.
 
-* Edit the `in_phox` file such that it contains the correct temperature and background.
+* (Optional) Using SciPhon and the generated files above, determine the temperature and background noise level for the spectra. For its usage, one should consult [this paper](https://journals.iucr.org/s/issues/2018/05/00/fv5085/).
+
+* Edit the `in_phox` file such that it contains the correct temperature and background noise.
 
 * Run `./phox_plot.bash` to generate the density of state (DOS) file, and a plot will be shown as well.
 
@@ -29,5 +31,11 @@ Requires [PHOENIX](https://www.nrixs.com/products.html), which in turn requires 
   * `./switch_sample.bash Sample1` merely collects the files into the folder without setting up for another sample.
 
 * (Optional) To transfer this whole directory structure, it is recommended to use
-    ```rsync -avz --copy-unsafe-links source destination``` to perserve the directory and symlink structure. Also, one can use
-    ```tar -czvhf myfile.tar.gz mydir``` to dereference symlinks while making archives.
+    
+    ```rsync -avz --copy-unsafe-links source destination``` 
+    
+    to perserve the directory and symlink structure. Also, one should use
+    
+    ```tar -czvhf myfile.tar.gz mydir``` 
+    
+    to dereference symlinks while making archives.
