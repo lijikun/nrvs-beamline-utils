@@ -6,10 +6,10 @@ Requires [PHOENIX](https://www.nrixs.com/products.html), which in turn requires 
 
 * Download the `.tar.gz` archive for the newest release. Extract all files, including the Example folder and symlinks, to the same directory where the `scans/` subdirectory is located:
         
-  ```wget https://github.com/lijikun/nrvs-beamline-utils/archive/v1.0beta2.tar.gz
-  tar -xvf v1.0beta2.tar.gz --strip-components=1\```
- 
- Alternatively, if you only need to extract bash scripts:
+   ```wget https://github.com/lijikun/nrvs-beamline-utils/archive/v1.0beta2.tar.gz
+   tar -xvf v1.0beta2.tar.gz --strip-components=1\```
+
+* Alternatively, if you only need the bash scripts:
         
    ```tar -xvf v1.0beta2.tar.gz --wildcards '*.bash" --strip-components=1```
 
