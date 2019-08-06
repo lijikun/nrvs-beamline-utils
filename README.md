@@ -10,9 +10,7 @@ Requires [PHOENIX](https://www.nrixs.com/products.html), which in turn requires 
   
   ```
   cd [your data directory]
-  
   wget https://github.com/lijikun/nrvs-beamline-utils/archive/v1.0beta2.tar.gz
-  
   tar -xvf v1.0beta2.tar.gz --wildcards '*.bash" --strip-components=1
   ```
 
