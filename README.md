@@ -6,7 +6,16 @@ Requires [PHOENIX](https://www.nrixs.com/products.html), which in turn requires 
 
 * Download the `.tar.gz` archive for the newest release. Extract all files, including the Example folder and symlinks, to the same directory where the `scans/` subdirectory is located.
 
-* Collect your data. Raw scans should be stored in the `scans/` subdirectory, e.g. `scans/scan_0003.mda`.
+  * Alternatively, if you only need the bash scripts, you can download the release file and extract only the `*.bash` scripts.
+  
+  ```cd [your data directory]
+  
+  wget https://github.com/lijikun/nrvs-beamline-utils/archive/v1.0beta2.tar.gz
+  
+  tar -xvf v1.0beta2.tar.gz --wildcards '*.bash" --strip-components=1
+  ```
+
+* Acquire your experimental data. Raw scans should be stored in the `scans/` subdirectory, e.g. `scans/scan_0003.mda`.
 
 * Use the `switch_sample.bash` script to name a sample, setting up the proper folder and symlinks:
 
