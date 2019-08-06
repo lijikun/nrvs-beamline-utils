@@ -26,9 +26,9 @@ Requires [PHOENIX](https://www.nrixs.com/products.html), which in turn requires 
 
 * (Optional) Use `switch_sample.bash` again to switch to another sample, or just collect the files in the proper directory.
 
-  * `./switch_sample.bash Sample2` collects files for Sample1 into the `Sample1/` directory, and sets up the `Sample2/` directory for a second sample.
+  * `./switch_sample.bash Sample2` (another existing or new sample name) collects files for Sample1 into the `Sample1/` directory, and sets up the `Sample2/` directory for a second sample.
 
-  * `./switch_sample.bash Sample1` merely collects the files into the folder without setting up for another sample.
+  * `./switch_sample.bash Sample1` (the same sample name) merely collects the files into the folder without setting up for another sample. `in_padd` and `in_phox` symlinks will still be linked to the files for this sample.
 
 * (Optional) To transfer this whole directory structure, it is recommended to use
     
