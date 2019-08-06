@@ -2,7 +2,7 @@
 
 A bunch of Bash scripts. Requires [PHOENIX](https://www.nrixs.com/products.html), which in turn requires [MDA utilities](https://epics.anl.gov/bcda/mdautils/) for data generated at ANL. Also requires bash, sed, awk and gnuplot. [SciPhon](https://originslab.uchicago.edu/Software-and-Facilities) is optional but strongly recommended.
 
-## What the Individual Scripts Do
+## What Individual Scripts Do
 
 The scripts allow some parameters. Usage notes are included in the scripts themselves.
 
