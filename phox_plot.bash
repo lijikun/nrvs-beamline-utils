@@ -43,6 +43,8 @@ fi
 intfile="${dosfile/_dos.dat/_dos_int.dat}"
 
 
-awk 'BEGIN {total = 0; fac = '${factor}'} {total += $2; print ($1 * fac) "\t" $2 "\t" $3 "\t" total}' ${dosfile} > ${intfile}
+awk 'BEGIN {fac = '${factor}'; total = 0}; \
+	NR==1 {total = $2; x1 = $1; print ($1 * fac) "\t" $2 "\t" $3 "\t" total}; \
+ 	NR!=1 {total += ($2 * ($1 - x1)); x1 = $1; print ($1 * fac) "\t" $2 "\t" $3 "\t" total}' ${dosfile} > ${intfile}
 gnuplot --persist -e 'set ytics nomirror; plot "'${intfile}'" using 1:2:3 with yerrorbars axis x1y1, "'${intfile}'" using 1:4 with lines axis x1y2'
 
