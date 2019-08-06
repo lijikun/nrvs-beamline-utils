@@ -17,7 +17,7 @@ The scripts allow some parameters. Usage notes are included in the scripts thems
 * Download the `.tar.gz` archive for the newest release. Extract all files, including the Example folder and symlinks, to the same directory where the `scans/` subdirectory is located:
 
     ```
-    wget https://github.com/lijikun/nrvs-beamline-utils/archive/v1.0beta2.tar.gz```
+    wget https://github.com/lijikun/nrvs-beamline-utils/archive/v1.0beta2.tar.gz
     tar -xvf v1.0beta2.tar.gz --strip-components=1
     ```
 
