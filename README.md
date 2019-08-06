@@ -1,6 +1,16 @@
 # Utility Scripts for NRVS Data Processing
 
-Requires [PHOENIX](https://www.nrixs.com/products.html), which in turn requires [MDA utilities](https://epics.anl.gov/bcda/mdautils/) for data generated at ANL. Also requires bash, sed, awk and gnuplot. Optionally, [SciPhon](https://originslab.uchicago.edu/Software-and-Facilities) is also recommended.
+A bunch of Bash scripts. Requires [PHOENIX](https://www.nrixs.com/products.html), which in turn requires [MDA utilities](https://epics.anl.gov/bcda/mdautils/) for data generated at ANL. Also requires bash, sed, awk and gnuplot. [SciPhon](https://originslab.uchicago.edu/Software-and-Facilities) is optional but strongly recommended.
+
+## What the Individual Scripts Do
+
+The scripts allow some parameters. Usage notes are included in the scripts themselves.
+
+* `switch_sample.bash` creates folders and symlinks for a sample, and automatically edits the input files for PHOENIX such that it generates output files with correct names.
+
+* `res_func.bash` automatically generates an edited input file and calls `padd` to generate a resolution function file from forward scattering data.
+
+* `phox_plot.bash` automatically edits inputs to make use of the resolution function, calls `phox` to generate the density of states (DOS) data, then integrates the DOS, and finally generates a plot containing the DOS and integration.
 
 ## General Data Processing Step-by-Step
 
@@ -21,7 +31,7 @@ Requires [PHOENIX](https://www.nrixs.com/products.html), which in turn requires 
 
     ```./switch_sample.bash Sample1```
 
-* Edit the end of the `in_padd` file, such that the corrected raw files are included.
+* Edit the (15.1) section of the `in_padd` file, such that the correct raw scan data files are included.
 
 * Run `padd` to generate the sum file `[Sample Name]_sum.dat`.
 
