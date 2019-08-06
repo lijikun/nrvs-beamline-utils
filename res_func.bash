@@ -1,9 +1,10 @@
 #!/bin/bash
 #
 # Edits and generates resolution function file according to in_padd w/o overwriting it.
-# Optional: Use command line parameter as the limit of energy (in meV). 
-# Will cut the file from - to +limit. If not specified, 20 is used as default.
-# e.g.: ./res_func.bash 14.4 	# Will generate a *_res_sum.dat from -14.4 to +14.4 meV.
+# Optional: Use a command line parameter as the limit of energy (in meV). 
+# Will cut the energy range from - to +limit (in meV). If not specified, 20 is used as default. i.e.:
+## ./res_func.bash 		# Generates a *_res_sum.dat from -20 to +20 meV.
+## ./res_func.bash 14.4 	# Generates a *_res_sum.dat from -14.4 to +14.4 meV.
 
 file1=$(basename $(readlink in_padd))
 string1=${file1#in_padd_}
