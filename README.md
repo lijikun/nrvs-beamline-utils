@@ -5,16 +5,16 @@ Requires [PHOENIX](https://www.nrixs.com/products.html), which in turn requires 
 ## General Data Processing Step-by-Step
 
 * Download the `.tar.gz` archive for the newest release. Extract all files, including the Example folder and symlinks, to the same directory where the `scans/` subdirectory is located:
-    
-    ```cd [your data directory]
-    wget https://github.com/lijikun/nrvs-beamline-utils/archive/v1.0beta2.tar.gz
-    tar -xvf v1.0beta2.tar.gz --strip-components=1```
+        
+    ```wget https://github.com/lijikun/nrvs-beamline-utils/archive/v1.0beta2.tar.gz
+    tar -xvf v1.0beta2.tar.gz --strip-components=1
+    ```
  
-Alternatively, if you only need the bash scripts:
-    
-    ```cd [your data directory]
-    wget https://github.com/lijikun/nrvs-beamline-utils/archive/v1.0beta2.tar.gz
-    tar -xvf v1.0beta2.tar.gz --wildcards '*.bash" --strip-components=1```
+  Alternatively, if you only need the bash scripts:
+        
+    ```wget https://github.com/lijikun/nrvs-beamline-utils/archive/v1.0beta2.tar.gz
+    tar -xvf v1.0beta2.tar.gz --wildcards '*.bash" --strip-components=1
+    ```
 
 * Acquire your experimental data. Raw scans should be stored in the `scans/` subdirectory, e.g. `scans/scan_0003.mda`.
 
