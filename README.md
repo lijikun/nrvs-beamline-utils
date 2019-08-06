@@ -8,7 +8,8 @@ Requires [PHOENIX](https://www.nrixs.com/products.html), which in turn requires 
 
   * Alternatively, if you only need the bash scripts, you can download the release file and extract only the `*.bash` scripts.
   
-  ```cd [your data directory]
+  ```
+  cd [your data directory]
   
   wget https://github.com/lijikun/nrvs-beamline-utils/archive/v1.0beta2.tar.gz
   
