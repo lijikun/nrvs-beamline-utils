@@ -1,6 +1,17 @@
 #!/bin/bash
 #
-# Usage: ./switch_sample.bash NewSampleName
+# Switches the sample data being processed.
+# 
+# Reads in_padd and in_phox symlinks for the current sample name, 
+# and moves the files starting with the sample name into a folder with the same name.
+# 
+# If the PHOENIX input files already exist for the new sample name,
+# will just re-make the symlinks in_padd and in_phox pointing to them.
+# If no such files are found, will make a new directory, copy the input files,
+# and edit them to fit the new sample name. New symlinks are also made.
+#
+# Usage: 
+## ./switch_sample.bash [New Sample Name]
 
 echo
 if [[ ! $1 ]]; then
