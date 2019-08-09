@@ -12,18 +12,24 @@ The scripts allow some parameters. Usage notes are included in the scripts thems
 
 * `phox_plot.bash` automatically edits inputs to make use of the resolution function, calls `phox` to generate the density of states (DOS) data, then integrates the DOS, and finally generates a plot containing the DOS and integration.
 
-## General Data Processing Step-by-Step
+## Getting the Scripts
 
 * Download the `.tar.gz` archive for the newest release. Extract all files, including the Example folder and symlinks, to the same directory where the `scans/` subdirectory is located:
 
     ```
-    wget https://github.com/lijikun/nrvs-beamline-utils/archive/v1.0beta3.tar.gz
+    wget https://github.com/lijikun/nrvs-beamline-utils/archive/v1.0.tar.gz
     tar -xvf v1.0beta3.tar.gz --strip-components=1
     ```
-
-    Alternatively, if you only need the bash scripts:
+    
+  This will provide sample in_padd and in_phox files which one can edit as necessary.
+  
+* Alternatively, if you only need the bash scripts:
 
     ```tar -xvf v1.0beta2.tar.gz --wildcards '*.bash" --strip-components=1```
+    
+* To use the latest development version, clone this repo and copy the scripts and/or examples to where your data files are.
+
+## General Data Processing Step-by-Step
 
 * Acquire your experimental data. Raw scans should be stored in the `scans/` subdirectory, e.g. `scans/scan_0003.mda`.
 
@@ -49,11 +55,15 @@ The scripts allow some parameters. Usage notes are included in the scripts thems
 
   * `./switch_sample.bash Sample1` (the same sample name) merely collects the files into the folder without setting up for another sample. `in_padd` and `in_phox` symlinks will still be linked to the files for this sample.
 
-* (Optional) To transfer this whole directory structure, it is recommended to use
+## Tips for Transferring Data
+
+* To transfer this whole directory structure, it is recommended to use
     
     ```rsync -avz --copy-unsafe-links source destination``` 
     
-    to perserve the directory and symlink structure. Also, one should use
+    to perserve the directory and symlink structure. 
+    
+* Also, one should use
     
     ```tar -czvhf myfile.tar.gz mydir``` 
     
