@@ -1,1 +1,173 @@
-Example/in_phox_Example
+*
+************************************************************************
+*
+*    Standard input file of module PHOX
+*
+************************************************************************
+*  
+*    Lines which first character is an asterisk (*) are
+*    supposed to be comments and can occur anywhere
+*    in the input stream.
+*
+*    Lines which first character is the char. (@)
+*    will be interpreted as commands. They must match a
+*    simple pattern :
+*
+*      @ variable_name := string
+*    
+*    In the following input stream @variable_name will 
+*    be substituted by string. variable_name may be up
+*    to 8 chars long. Continuation lines are not allowed.
+*
+*    Every valid input line (begins not with *) looks like
+*          <comment> :: <data> :: <comment>
+*    or like
+*          <comment> :: <data>
+*    and <data> is read by PHOX with free format.
+*
+*
+************************************************************************
+*
+*  general information
+*  ===================
+*
+ (1) transition energy / keV ::  14.4125
+ (2) recoil energy     / meV ::   1.956
+*
+************************************************************************
+*
+*  input data specific information
+*  ===============================
+*
+ (3.1) sample temperature / K  :: 70
+*
+*   syntax of data field :
+*      <file name> <column for energy> <column for counts>
+*
+ (3.2) input data file name    :: Example_sum.dat 1 2 :: Comment 1.
+*
+*  four values, (2)-(4) optional:
+*   (1) background contribution in each input bin. Specify either
+*        the value or 'auto <num>' to have phox calculate this number
+*        from the first <num> bins on the low energy side;
+*   (2) intensity normalization correction (%/100meV);
+*   (3) linear energy scale correction (1E-3);
+*   (4) quadratic energy scale correction (1E-6/meV).
+*
+ (3.3) data background; normalization correction :: 0.0
+*
+******************************************
+*
+*  output data specific information
+*  ================================
+*
+*   syntax of data field :
+*
+*      <pfx> <print_options>
+*
+*   The value of <pfx> is used as prefix to generate the
+*    names of output files.
+*   The string <print_options> consists of a list of characters
+*    separated by spaces.
+*   The extension <ext> is 'csv' for comma-separated data
+*    if ',' is in the list or 'dat' otherwise.
+*
+*   option        file content                    file name
+*
+*    a,A  :  thermal asymmetry                   <pfx>_asy.<ext>
+*             linear fit to thermal asymmetry    <pfx>_asl.<ext>
+*             quadratic fit to thermal asymmetry <pfx>_asq.<ext>
+*             correction to energy scale         <pfx>_eco.<ext>
+*    n,N  :  normalized data after peak removal  <pfx>_psn.<ext>
+*    r,R  :  fitted resolution function          <pfx>_rfc.<ext>
+*    s,S  :  input data after peak removal       <pfx>_pst.<ext>
+*    x,X  :  option D + decorrelate errors       <pfx>_dos.<ext>
+*    1    :  one-phonon part of input data       <pfx>_1ph.<ext>
+*    2    :  two-phonon part of input data       <pfx>_2ph.<ext>
+*    3    :  >two-phonon part of input data      <pfx>_3ph.<ext>
+*
+*    g,G  :  add headers for Grace plotting program
+*    ,    :  produce comma-separated value files, extension 'csv'
+*
+ (3.4) prefix, print options :: Example  p 1 2 3 d n r s :: Comment 2.
+*
+******************************************
+*
+*  Fit of the elastic peak
+*  =======================
+*
+*   (3.5) :  two values:
+*              (1) the range of fitting of the elastic peak
+*                  plus/minus this value relativ to peak position
+*              (2) the range of smoothing after subtraction
+*                  of the elastic peak (optional)
+*
+*   (3.6) :  this is the value of the inelastic contribution
+*             under the elastic peak. If a negative value is
+*             specified the program will fit the parameter
+*
+*   (3.7) :  the left/right asymmetry of the fitted function
+*
+*   (3.8) :  number or file name:
+*
+*           #file name: file containes data describing the
+*            shape of the elastic peak in 2-column format,
+*            energy range should cover the fitted range,
+*            input field (3.5). The symmetry of the shape
+*            can be modified using input field (3.7). A
+*            Debye-like inelastic background is assumed.
+*
+*           #process option: with file name the option
+*            'process:<r1>:<r2>' is available for resolution
+*            function processing. <r1> is the level (relative
+*            to the peak) below which the tail region starts.
+*            <r2> is the tail cut-off level (relative).
+*            For more details see the manual.
+*
+*           #number: determines the shape of the internally
+*            generated function that is fit to the elastic
+*            peak
+*
+*              R(E) = A1*exp[-((E-A3)/A2L)^A4] + A5*D(E,T) , E<A3
+*              R(E) = A1*exp[-((E-A3)/A2R)^A4] + A5*D(E,T) , E>A3
+*
+*                A1 : peak height           fitted
+*                A2L: peak width (left)     fitted
+*                A2R: peak width (right)    fitted  A2L/A2R=line (3.7)
+*                A3 : peak position         fitted
+*                A4 : shape parameter       fitted  line (3.8)
+*                A5 : background height     fitted  line (3.6)
+*                D  : Debye-like inelastic background function
+*
+*            A4=2 corresponds to a Gaussian, larger
+*            values lead to a more rectangular shape.
+*
+ (3.5) fit range / meV       :: 3
+ (3.6) inelastic background  :: -1
+ (3.7) asymmetry, left/right :: 1
+ (3.8) shape, 2=Gaussian :: Example_res_sum.dat 1 2 process :: Comment 3.
+*
+******************************************
+*
+*  Deconvolution of the data
+*  =========================
+*
+*   (3.9) :  whether the data should be deconvoluted, the
+*             error estimates of the output data become
+*             unreliable, i.e., in general too small.
+*
+*   (3.10):  if data is not deconvoluted one value can be
+*             specified, the larger the value the more the
+*             data is smoothed (choose smallest reasonable value).
+*            if data is deconvoluted two values must be
+*             specified, 1.value gives the fraction of FT spectrum
+*             of the data to be used (choose largest reasonable
+*             value), 2.value gives power coefficient for filter
+*             function applied to selected data window, a larger
+*             value leads to a more rectangular filter function.
+*
+ (3.9)  deconvolute data   :: no
+ (3.10) filter parameters  :: 0
+*
+************************************************************************
+*

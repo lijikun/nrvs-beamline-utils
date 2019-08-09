@@ -1,0 +1,6 @@
+# For testing purposes.
+
+scans/
+*~
+*.tmp
+*.hdr
