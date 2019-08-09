@@ -51,7 +51,7 @@ else
 			sed -e "s:${prevString2}:${target}:g" in_phox > ${target}/in_phox_${target}
         else
             # Cannot read existing sample name data. Try to edit in_padd and in_phox by section numbers instead.
-            awk 'BEGIN {FS="::"} /^[^\*]*\(8\.?\).*::/ {print $1 ":: '${target}' ($3? " ::" $3: "" ) ; next} {print}' in_padd > ${target}/in_padd_${target}
+            awk 'BEGIN {FS="::"} /^[^\*]*\(8\.?\).*::/ {print $1 ":: '${target}'" ($3? " ::" $3: "" ) ; next} {print}' in_padd > ${target}/in_padd_${target}
             awk 'BEGIN {FS="::"} /^[^\*]*\(3.2\.?\).*::/ {print $1 ":: '"${target}_sum.dat 1 2"'" ($3? " ::" $3 : ""); next} /^[^\*]*\(3.4\.?\).*::/ {print $1 ":: '"${target} p 1 2 3 d n r s"'" ($3? " ::" $3 : ""); next} /^[^\*]*\(3.8\.?\).*::/ {print $1 ":: 2" ($3? " ::" $3 : ""); next} {print}' in_phox > ${target}/in_phox_${target}
 		fi
 	else
