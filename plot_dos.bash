@@ -6,8 +6,8 @@
 #
 # Defaults to cm^-1 as energy unit. Optionally, use --meV for meV energy unit.
 #
-## ./phox_plot.bash		    # Generates file and plot with cm^-1 as energy unit.
-## ./phox_plot.bash --meV	# With meV as energy unit.
+## ./plot_dos.bash		    # Generates file and plot with cm^-1 as energy unit.
+## ./plot_dos.bash --meV	# With meV as energy unit.
 
 file2=$(basename $(readlink in_phox))
 string2=${file2#in_phox_}
