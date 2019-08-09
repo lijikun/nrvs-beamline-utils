@@ -19,10 +19,12 @@ file2=$(basename $(readlink in_phox))
 string2=${file2#in_phox_}
 
 factor=8.06554
+unitString='cm^{-1}'
 resString=
 for i in $@; do
     if [[ $i == '--meV' ]]; then
         factor=1.0;
+	unitString='meV'
     fi
     if [[ $i == '--Gau' ]]; then
         resString=2;
@@ -60,5 +62,7 @@ intfile="${dosfile/_dos.dat/_dos_int.dat}"
 awk 'BEGIN {fac = '${factor}'; total = 0}; \
 	NR==1 {total = $2; x1 = $1; print ($1 * fac) "\t" $2 "\t" $3 "\t" total}; \
  	NR!=1 {total += ($2 * ($1 - x1)); x1 = $1; print ($1 * fac) "\t" $2 "\t" $3 "\t" total}' ${dosfile} > ${intfile}
-gnuplot --persist -e 'set ytics nomirror; plot "'${intfile}'" using 1:2:3 with yerrorbars axis x1y1, "'${intfile}'" using 1:4 with lines axis x1y2'
+gnuplot --persist -e 'set ytics nomirror; set xtitle "Energy ('${unitString}')"; \
+	plot "'${intfile}'" using 1:2:3 with yerrorbars axis x1y1 title "'${string2}' PVDOS", \
+	"'${intfile}'" using 1:4 with lines axis x1y2 title "Integral"'
 
