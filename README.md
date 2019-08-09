@@ -10,14 +10,16 @@ The scripts allow some parameters. Usage notes are included in the scripts thems
 
 * `res_func.bash` automatically generates an edited input file and calls `padd` to generate a resolution function file from forward scattering data.
 
-* `phox_plot.bash` automatically edits inputs to make use of the resolution function, calls `phox` to generate the density of states (DOS) data, then integrates the DOS, and finally generates a plot containing the DOS and integration.
+* `phox_res.bash` automatically edits inputs to make use of the resolution function, calls `phox` to generate the density of states (DOS) data. 
+
+* `plot_dos.bash` integrates the DOS, and finally generates a plot containing the DOS and integration.
 
 ## Getting the Scripts
 
 * Download the `.tar.gz` archive for the newest release. Extract all files, including the Example folder and symlinks, to the same directory where the `scans/` subdirectory is located:
 
     ```
-    wget https://github.com/lijikun/nrvs-beamline-utils/archive/v1.0.tar.gz
+    wget https://github.com/lijikun/nrvs-beamline-utils/archive/v1.1beta1.tar.gz
     tar -xvf v1.0beta3.tar.gz --strip-components=1
     ```
     
@@ -47,7 +49,9 @@ The scripts allow some parameters. Usage notes are included in the scripts thems
 
 * Edit the `in_phox` file such that it contains the correct temperature and background noise.
 
-* Run `./phox_plot.bash` to generate the density of state (DOS) file, and a plot will be shown as well.
+* Run `./phox_res.bash` to generate the density of state (DOS) file.
+
+* Run `./plot_dos.bash` to integrate the DOS and generate a plot of both DOS and the integral.
 
 * (Optional) Use `switch_sample.bash` again to switch to another sample, or just collect the files in the proper directory.
 
