@@ -255,8 +255,8 @@
 *   
 *     <file name> <ne> <nd>
 * Example Sample
-(15.1.)  file ::  scans/scan_00<01-03>.mda a2 A3 d11 t13 T14 n7 
-(15.1.)  file ::  scans/scan_0005.mda a2 A3 d11 t13 T14 n7 
+* (15.1.)  file ::  scans/scan_00<01-03>.mda a2 A3 d11 t13 T14 n7 
+(15.1.)  file ::  scans/scan_0029.mda a2 A3 d11 t13 T14 n7 
 *
 *
 ************************************************************************
