@@ -42,6 +42,7 @@ if [[ ! $resString ]]; then
         fi
     fi
 fi
+# awk 'BEGIN {FS="::"} /^[^\*]*\(3.8\.?\).*::/ {print $1 ":: '"${resString}"'" ($3? " ::" %3: ""); next} {print}' in_padd > ${string2}_in_phox_res
 sed -i --follow-symlinks -e 's|^[[:space:]]*(3.8).*| (3.8) shape, 2=Gaussian :: '"${resString}"'|g' in_phox
 phox --nographics
 
