@@ -62,5 +62,5 @@ intfile="${dosfile/_dos.dat/_dos_int.dat}"
 awk 'BEGIN {fac = '${factor}'; total = 0}; \
 	NR==1 {total = $2; x1 = $1; print ($1 * fac) "\t" $2 "\t" $3 "\t" total}; \
  	NR!=1 {total += ($2 * ($1 - x1)); x1 = $1; print ($1 * fac) "\t" $2 "\t" $3 "\t" total}' ${dosfile} > ${intfile}
-gnuplot --persist -e 'set ytics nomirror; set xtitle "Energy ('${unitString}')"; plot "'${intfile}'" using 1:2:3 with yerrorbars axis x1y1 title "'${string2}' PVDOS", "'${intfile}'" using 1:4 with lines axis x1y2 title "Integral"'
+gnuplot --persist -e 'set ytics nomirror; set xlabel "Energy ('${unitString}')"; plot "'${intfile}'" using 1:2:3 with yerrorbars axis x1y1 title "'${string2}' PVDOS", "'${intfile}'" using 1:4 with lines axis x1y2 title "Integral"'
 
