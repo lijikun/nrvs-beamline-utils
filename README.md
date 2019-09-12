@@ -19,19 +19,19 @@ The scripts allow some parameters. Usage notes are included in the scripts thems
 * Download the `.tar.gz` archive for the newest release. Extract all files, including the Example folder and symlinks, to the same directory where the `scans/` subdirectory is located:
 
     ```
-    wget https://github.com/lijikun/nrvs-beamline-utils/archive/v1.1beta1.tar.gz
-    tar -xvf v1.0beta3.tar.gz --strip-components=1
+    wget https://github.com/lijikun/nrvs-beamline-utils/archive/v1.1beta2.tar.gz
+    tar -xvf v1.1beta2.tar.gz --strip-components=1
     ```
     
   This will provide sample in_padd and in_phox files which one can edit as necessary.
   
 * Alternatively, if you only need the bash scripts:
 
-    ```tar -xvf v1.0beta2.tar.gz --wildcards '*.bash" --strip-components=1```
+    ```tar -xvf v1.1beta2.tar.gz --wildcards '*.bash" --strip-components=1```
     
 * To use the latest development version, clone this repo and copy the scripts and/or examples to where your data files are.
 
-## General Data Processing Step-by-Step
+## General Data Processing Workflow
 
 * Acquire your experimental data. Raw scans should be stored in the `scans/` subdirectory, e.g. `scans/scan_0003.mda`.
 
