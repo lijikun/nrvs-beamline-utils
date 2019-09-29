@@ -14,7 +14,7 @@ The scripts allow some parameters. Usage notes are included in the scripts thems
 
 * `plot_dos.bash` integrates the DOS, and finally generates a plot containing the DOS and integration.
 
-## Getting the Scripts
+## Downloading the Scripts
 
 * Download the `.tar.gz` archive for the newest release. Extract all files, including the Example folder and symlinks, to the same directory where the `scans/` subdirectory is located:
 
